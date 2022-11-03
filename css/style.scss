@@ -288,6 +288,19 @@
                         color: #000000;
                         z-index: 1;
                     }
+                    .media-box {
+                        h4 {
+                            font-family: 'GongGothicMedium';
+                            font-size: 50px;
+                            color: #4f4f4f;
+                        }
+                        p {
+                            font-weight: 500;
+                            letter-spacing: -1px;
+                            color: rgba(0,0,0,0.9);
+                            white-space: nowrap;
+                        }
+                    }
                     .gallery {
                         width: 630px;
                         height: 650px;
@@ -301,17 +314,42 @@
                             z-index: 5;
                             display: block;
                             padding: 427px 0 0 367px;
-                            h4 {
-                                font-family: 'GongGothicMedium';
-                                font-size: 50px;
-                                color: #4f4f4f;
-                            }
-                            p {
-                                font-weight: 500;
-                                letter-spacing: -1px;
-                                color: rgba(0,0,0,0.7);
-                                white-space: nowrap;
-                            }
+                        }
+                    }
+                    .ost {
+                        position: absolute;
+                        top: 60px;
+                        left: 600px;
+                        width: 600px;
+                        height: 740px;
+                        &::after {
+                            display: block;
+                            content: '';
+                            position: absolute;
+                            top: 321px;
+                            left: 225px;
+                            width: 101px;
+                            height: 41px;
+                            background: url('../assets/media-ost-front.png') no-repeat 0 0;
+                            z-index: 3;
+                        }
+                        a {
+                            width: 100%;
+                            height: 100%;
+                            padding: 288px 0 0 20px;
+                            box-sizing: border-box;
+                            position: relative;
+                            z-index: 5;
+                            display: block;
+                        }
+                        .cd {
+                            position: absolute;
+                            top: 154px;
+                            left: 178px;
+                            z-index: 2;
+                            width: 194px;
+                            height: 194px;
+                            background: url('../assets/media-ost.png') no-repeat 0 0;
                         }
                     }
                 }
