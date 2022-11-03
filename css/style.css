@@ -1,0 +1,428 @@
+@font-face {
+  font-family: "S-CoreDream-3Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GongGothicMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SEBANG_Gothic_Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.notosanskr * {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "S-CoreDream-3Light";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  cursor: default;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+     tab-size: 4;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  min-width: 1200px;
+  max-width: 2600px;
+  height: 100%;
+  position: relative;
+}
+.content:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.first .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.first .bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.first .bg video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.first .bg .text-box {
+  width: 536px;
+  height: 438px;
+  position: absolute;
+  top: 50%;
+  left: 9%;
+  margin-top: -305px;
+  color: #ffffff;
+}
+.first .bg .text-box .title {
+  width: 474px;
+  height: 186px;
+  background: url("../assets/main-title.png") no-repeat;
+}
+.first .bg .text-box .update {
+  font-size: 22px;
+  margin: 32px 0 0 33px;
+  letter-spacing: 0.25em;
+  font-weight: 500;
+}
+.first .bg .text-box h2 {
+  font-family: "GongGothicMedium";
+  font-size: 56px;
+  margin: 16px 0 0 33px;
+  font-weight: 400;
+  letter-spacing: -3.5px;
+  white-space: nowrap;
+}
+.first .bg .text-box .download {
+  font-size: 24px;
+  margin: 46px 0 0 33px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: -1.3px;
+}
+.first .gnb-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #161616;
+  transition: 0.5s;
+  z-index: 10;
+}
+.first .gnb-top .gnb-logo {
+  width: 146px;
+  height: 40px;
+  background: url("../assets/gnb_logo.png") no-repeat;
+}
+.first .gnb-top.off {
+  top: -40px;
+}
+.first .header {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 92px;
+  transition: 0.8s;
+  z-index: 10;
+}
+.first .header.black .logo {
+  opacity: 0;
+  visibility: hidden;
+}
+.first .header.black .button-wrap ul {
+  opacity: 0;
+  visibility: hidden;
+}
+.first .header.black .button-wrap .menu-bar {
+  background: url("../assets/menu-bar.png") no-repeat;
+  background-position: 50%;
+}
+.first .header .logo {
+  position: absolute;
+  top: 23px;
+  left: 34px;
+  width: 92px;
+  height: 35px;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.4s;
+  background: url("../assets/logo-black.png") no-repeat center/cover;
+}
+.first .header.off {
+  top: 0px;
+}
+.first .header .button-wrap {
+  width: 643px;
+  height: 53px;
+  position: absolute;
+  top: 16px;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.first .header .button-wrap ul {
+  display: flex;
+  margin: 0 10px;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.4s;
+}
+.first .header .button-wrap ul li {
+  margin: 6px 0 0 10px;
+  height: 47px;
+}
+.first .header .button-wrap ul li:nth-child(1) {
+  width: 176px;
+  background: url("../assets/pc-ver.png") no-repeat center/cover;
+}
+.first .header .button-wrap ul li:nth-child(2) {
+  width: 152px;
+  background: url("../assets/ko_appstore.svg") no-repeat center/cover;
+}
+.first .header .button-wrap ul li:nth-child(3) {
+  width: 159px;
+  background: url("../assets/ko_googleplay.svg") no-repeat center/cover;
+}
+.first .header .button-wrap .menu-bar {
+  display: inline-block;
+  width: 36px;
+  height: 37px;
+  padding-top: 6px;
+  background: url("../assets/menu-bar-black.png") no-repeat;
+  background-position: 50%;
+  margin: 0 40px 0 30px;
+}
+.first .bottom-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 145px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  z-index: 10;
+}
+.first .bottom-wrap .button-wrap {
+  position: fixed;
+  bottom: 70px;
+  left: 9%;
+}
+.first .bottom-wrap .button-wrap ul {
+  display: flex;
+}
+.first .bottom-wrap .button-wrap ul li {
+  margin: 6px 0 0 10px;
+  height: 47px;
+  margin: 0 10px 0 0;
+  height: 56px;
+}
+.first .bottom-wrap .button-wrap ul li:nth-child(1) {
+  width: 176px;
+  background: url("../assets/pc-ver.png") no-repeat center/cover;
+}
+.first .bottom-wrap .button-wrap ul li:nth-child(2) {
+  width: 152px;
+  background: url("../assets/ko_appstore.svg") no-repeat center/cover;
+}
+.first .bottom-wrap .button-wrap ul li:nth-child(3) {
+  width: 159px;
+  background: url("../assets/ko_googleplay.svg") no-repeat center/cover;
+}
+.first .bottom-wrap .button-wrap ul li:first-child {
+  width: 210px;
+}
+.first .bottom-wrap .button-wrap ul li:nth-child(2) {
+  width: 184px;
+}
+.first .bottom-wrap .button-wrap ul li:last-child {
+  margin: 0;
+  width: 190px;
+}
+.first .bottom-wrap .button-wrap .view-video {
+  position: fixed;
+  right: 40px;
+  bottom: 70px;
+  width: 363px;
+  height: 147px;
+  background: url("../assets/view-video.png") no-repeat;
+}
+
+.third .status-wrap {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  width: 17px;
+  height: 272px;
+  margin-top: -136px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+.third .status-wrap span {
+  position: absolute;
+  transform: rotate(-90deg);
+  color: #373737;
+  font-family: "SEBANG_Gothic_Bold";
+  font-weight: 700;
+}
+.third .status-wrap .text-top {
+  top: 0;
+}
+.third .status-wrap .status-bar {
+  top: 46px;
+  left: 7px;
+  width: 3px;
+  height: 177px;
+  transform: rotate(0deg);
+}
+.third .status-wrap .status-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e2233a;
+  transition: 0.5s;
+}
+.third .status-wrap .status-bar em {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.third .status-wrap .text-bottom {
+  top: 249px;
+}
+.third .main-scroll-wrapper {
+  display: block;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+}
+.third .main-scroll-wrapper .main-scroll-content {
+  display: block;
+  min-height: 992px;
+  background: url("../assets/media-bg.jpg") no-repeat top #fff;
+}
+.third .main-scroll-wrapper .main-scroll-content .inner {
+  width: 100%;
+  height: 1110px;
+  position: relative;
+  z-index: 2;
+}
+.third .main-scroll-wrapper .main-scroll-content .inner .media-content-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.third .main-scroll-wrapper .main-scroll-content .inner .media-content-wrapper h3 {
+  width: 341px;
+  padding-top: 95px;
+  position: absolute;
+  top: 99px;
+  left: 98px;
+  background: url("../assets/media-logo-top.png") no-repeat center 0;
+  text-align: center;
+  font-family: "GongGothicMedium";
+  font-size: 80px;
+  font-weight: 900;
+  color: #000000;
+  z-index: 1;
+}
+.third .main-scroll-wrapper .main-scroll-content .inner .media-content-wrapper .gallery {
+  width: 630px;
+  height: 650px;
+  position: absolute;
+  top: 207px;
+  left: 0;
+}
+.third .main-scroll-wrapper .main-scroll-content .inner .media-content-wrapper .gallery a {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  display: block;
+  padding: 427px 0 0 367px;
+}
+.third .main-scroll-wrapper .main-scroll-content .inner .media-content-wrapper .gallery a h4 {
+  font-family: "GongGothicMedium";
+  font-size: 50px;
+  color: #4f4f4f;
+}
+.third .main-scroll-wrapper .main-scroll-content .inner .media-content-wrapper .gallery a p {
+  font-weight: 500;
+  letter-spacing: -1px;
+  color: rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+}
+
+.footer.content {
+  width: 100%;
+  height: 100px;
+  background-color: #333;
+}/*# sourceMappingURL=style.css.map */

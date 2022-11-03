@@ -1,0 +1,16 @@
+@mixin download-btns {
+    margin: 6px 0 0 10px;
+    height: 47px;
+    &:nth-child(1){
+        width: 176px;
+        background: url('../assets/pc-ver.png') no-repeat center / cover;
+    }
+    &:nth-child(2){
+        width: 152px;
+        background: url('../assets/ko_appstore.svg') no-repeat center / cover;
+    }
+    &:nth-child(3){
+        width: 159px;
+        background: url('../assets/ko_googleplay.svg') no-repeat center / cover;
+    }
+}
