@@ -22,25 +22,98 @@ $(function(){
 			page--;
 		}
 		var posTop = (page-1) * $(window).height();
-		$html.animate({scrollTop : posTop});
+		$html.animate({scrollTop : posTop}, 200);
 	});
 	
 	// main video autoplay;
-	// $('#vid').get(0).play();
+	$('#vid').get(0).play();
 
 	// gnb, header area position-top change
 	$(window).on('scroll', function(){
-		if($(this).scrollTop() > 0){
+		let scrollTop = $(this).scrollTop();
+		if(scrollTop > 0){
 			$('.gnb-top, .header').addClass('off');
 		}else {
 			$('.gnb-top, .header').removeClass('off');
 		}
 
-		if($(this).scrollTop() > $(this).height() - 5){
+		if(scrollTop > $(this).height() - 5){
 			$('.header').removeClass('black');
 		}else {
 			$('.header').addClass('black');
 		}
+
+		// second area animation
+		if($('.second').offset().top == scrollTop){
+			$('.second .inner').addClass('on');
+			$('.bar em').addClass('on');
+			$('.cover-img').addClass('on');
+			$('.cover.tit').addClass('on');
+			setTimeout(function(){
+				$('.header').addClass('on');
+			}, 1500);
+		}else{
+			$('.second .inner').removeClass('on');
+			$('.cover.bar em').removeClass('on');
+			$('.cover-img').removeClass('on');
+			$('.cover.tit').removeClass('on');
+			$('.header').removeClass('on');
+		}
+
+		// status bar control
+		let wHeight = $(window).height();
+		// 두번째 섹션이 화면에 가득 찰 때 2.1초 후에 status-wrap 안보이게
+		if(scrollTop == $('.second').offset().top){
+			setTimeout(function(){
+				$('.status-wrap').removeClass('on');
+			},1500);
+		}
+
+		// 스크롤탑 값이 두번째 섹션 ~ 세번째 섹션 - 윈도우창 높이/2 : status-wrap이 보이게, status-bar 높이 50%
+		// 세번째 섹션 - 윈도우창 높이/2 이상 : status-wrap이 보이게, status-bar 높이 100%
+		// 그 외에는 status-wrap 안 보이게
+		if(scrollTop >= $('.second').offset().top && scrollTop < $('.third').offset().top - wHeight/2){
+			$('.status-wrap').addClass('on');
+			$('.status-bar').removeClass('on2');
+			$('.status-bar').addClass('on1');
+		}else if(scrollTop >= $('.third').offset().top - wHeight/2){
+			$('.status-wrap').addClass('on');
+			$('.status-bar').removeClass('on1');
+			$('.status-bar').addClass('on2');
+		}else {
+			$('.status-wrap').removeClass('on');
+			$('.status-bar').removeClass('on1');
+		}
+
+		// 스크롤탑이 세번째 섹션에 들어오면 (그 이상일 때) top btn 보이게
+		if(scrollTop >= $('.content').eq(2).offset().top){
+			$('.top').css('opacity', '1');
+		}else{
+			$('.top').css('opacity', '0');
+		}
 	});
+
+	// second area video play
+	$('.main-cont-inner ul li').hover(function(){
+		$(this).find('video').get(0).play();
+	}, function(){
+		$(this).find('video').get(0).pause();
+	});
+
+	// media area gallery slide autoplay
+	let i = 1;
+	setInterval(function(){
+		$('.swiper-slide').removeClass('on');
+		$('.swiper-slide').eq(i).addClass('on');
+		i++;
+		if(i == 3){ i = 1 }
+	},3000);
+
+	// go to top
+	$('.top').click(function(){
+		$('html, body').animate({scrollTop: 0}, 300);
+		page = 1;
+	});
+
 });
 
