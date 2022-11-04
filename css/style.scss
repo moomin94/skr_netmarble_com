@@ -468,8 +468,40 @@
                         opacity: 1;
                     }
                     &:hover {
-                        .filter {
+                        > .filter {
                             opacity: 0;
+                        }
+                        > .content-wrap {
+                            .section-tit  {
+                                opacity: 0;
+                            }
+                            .intro-cont {
+                                .title {
+                                    .title-top {
+                                        transform: translateY(60px);
+                                        opacity: 0;
+                                    }
+                                    .title-bottom {
+                                        transform: translateY(85px);
+                                        padding-top: 0;
+                                        background-image: none;
+                                    }
+                                }
+                                .text {
+                                    transform: translateY(10px);
+                                    opacity: 0;
+                                }
+                                .btn-icon {
+                                    background-color: #ffffff;
+                                    bottom: 55px;
+                                    span {
+                                        color: #000000;
+                                    }
+                                }
+                            }
+                            .frame {
+                                opacity: 1;
+                            }
                         }
                      }
                     .content-wrap {
@@ -488,6 +520,7 @@
                             width: 23px;
                             height: 158px;
                             background: url('../assets/info-tit.png') no-repeat center / cover;
+                            transition: .5s;
                         }
                         .intro-cont {
                             position: relative;
@@ -502,6 +535,7 @@
                                     width: 320px;
                                     display: flex;
                                     flex-direction: column;
+                                    transition: .6s;
                                     .txt {
                                         display: block;
                                         font-family: 'Rosarivo', serif;
@@ -518,17 +552,19 @@
                                     width: 320px;
                                     height: 102px;
                                     padding-top: 42px;
-                                    background: url('../assets/info-title-line.png') no-repeat center 100%;
+                                    background-image: url('../assets/info-title-line.png');
+                                    background-repeat: no-repeat;
+                                    background-position: center 100%;
+                                    transition: .6s;
                                     text-align: center;
                                     h3 {
                                         @include h3;
                                         color: #ffffff;
-                                        font-size: 66px;
+                                        font-size: 65px;
                                         line-height: 1;
+                                        letter-spacing: -1px;
                                         &.center {
-                                            position: absolute;
-                                            top: 40px;
-                                            left: -5px;
+                                            letter-spacing: -2px;
                                         }
                                     }
                                 }
@@ -539,21 +575,24 @@
                                 line-height: 26px;
                                 font-size: 15px;
                                 letter-spacing: -.5px;
+                                transition: .2s;
                             }
                             .btn-icon {
                                 position: absolute;
                                 bottom: 0;
                                 left: 50%;
                                 transform: translateX(-50%);
-                                width: 127px;
+                                width: 123px;
                                 height: 47px;
                                 padding: 0 15px;
                                 border: 1px solid #ffffff;
                                 border-radius: 40px;
+                                transition: .6s;
                                 span {
                                     display: inline-block;
                                     font-size: 40px;
                                     color: #ffffff;
+                                    transition: .2s;
                                     animation-name: moveArrow2;
                                     animation-duration: 1.5s;
                                     animation-timing-function: ease-in-out;
@@ -561,6 +600,41 @@
                                     animation-fill-mode: backwards;
                                 }
                             }
+                        }
+                        .frame-01 {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            padding: 40px 30px 30px;
+                            .frame::after {
+                                content: '';
+                                position: absolute;
+                                top: -12px;
+                                left: 50%;
+                                width: 24px;
+                                height: 41px;
+                                background: url('../assets/frame-deco.png') no-repeat;
+                            }
+                        }
+                        .frame-02{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            padding: 54px 30px 43px;
+                        }
+                        .frame {
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            border: 1px solid rgba(255,255,255,0.3);
+                            border-radius: 12px;
+                            padding: 13px 0;
+                            transition: .6s;
+                            opacity: 0;
                         }
                     }
                 }
