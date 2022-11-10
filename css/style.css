@@ -232,7 +232,7 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 0.5s;
+  transition: 0.4s;
   z-index: 9;
 }
 .status-wrap.on {
@@ -526,6 +526,10 @@ table {
   width: 100%;
   height: 280px;
   text-align: center;
+}
+.second .inner .inner-cont.on {
+  opacity: 0;
+  visibility: 0;
 }
 .second .inner .inner-cont .cover {
   position: absolute;

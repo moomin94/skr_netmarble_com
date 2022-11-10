@@ -10,7 +10,9 @@ $(function(){
 	var $html = $('html');
 	var page = 1;
 	var lastPage = $(".content").length;
-	$html.animate({scrollTop:0},10);
+	var headerHide;
+	var statusHide;
+	$html.animate({scrollTop:0}, 100);
 
 	$(window).on("wheel", function(e){
 		if($html.is(":animated")) return;
@@ -22,14 +24,14 @@ $(function(){
 			page--;
 		}
 		var posTop = (page-1) * $(window).height();
-		$html.animate({scrollTop : posTop}, 200);
+		$html.animate({scrollTop : posTop}, 1000, 'easeInOutExpo');
 	});
 	
 	// main video autoplay;
 	$('#vid').get(0).play();
 
 	// gnb, header area position-top change
-	$(window).on('scroll', function(){
+	$(window).on('scroll', function(e){
 		let scrollTop = $(this).scrollTop();
 		if(scrollTop > 0){
 			$('.gnb-top, .header').addClass('off');
@@ -46,27 +48,32 @@ $(function(){
 		// second area animation
 		if($('.second').offset().top == scrollTop){
 			$('.second .inner').addClass('on');
+			$('.second .inner-cont').removeClass('on');
 			$('.bar em').addClass('on');
 			$('.cover-img').addClass('on');
 			$('.cover.tit').addClass('on');
-			setTimeout(function(){
+			headerHide = setTimeout(function(){
 				$('.header').addClass('on');
 			}, 1500);
 		}else{
-			$('.second .inner').removeClass('on');
-			$('.cover.bar em').removeClass('on');
-			$('.cover-img').removeClass('on');
-			$('.cover.tit').removeClass('on');
+			$('.second .inner-cont').addClass('on');
+			// $('.second .inner').removeClass('on');
+			// $('.cover.bar em').removeClass('on');
+			// $('.cover-img').removeClass('on');
+			// $('.cover.tit').removeClass('on');
 			$('.header').removeClass('on');
+			clearTimeout(headerHide);
 		}
-
+			
 		// status bar control
 		let wHeight = $(window).height();
 		// 두번째 섹션이 화면에 가득 찰 때 2.1초 후에 status-wrap 안보이게
 		if(scrollTop == $('.second').offset().top){
-			setTimeout(function(){
+			statusHide = setTimeout(function(){
 				$('.status-wrap').removeClass('on');
 			},1500);
+		}else {
+			clearTimeout(statusHide);
 		}
 
 		// 스크롤탑 값이 두번째 섹션 ~ 세번째 섹션 - 윈도우창 높이/2 : status-wrap이 보이게, status-bar 높이 50%
