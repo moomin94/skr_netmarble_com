@@ -27,6 +27,15 @@ html, body {
   font-family: "S-CoreDream-3Light";
 }
 
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -83,6 +92,29 @@ table {
   font-weight: 600;
 }
 
+@-webkit-keyframes jump {
+  0% {
+    transform: translateY(0) scaleY(0.95);
+  }
+  60% {
+    transform: translateY(-20%) scaleY(1);
+  }
+  100% {
+    transform: translateY(0) scaleY(0.95);
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0) scaleY(0.95);
+  }
+  60% {
+    transform: translateY(-20%) scaleY(1);
+  }
+  100% {
+    transform: translateY(0) scaleY(0.95);
+  }
+}
 @-webkit-keyframes moveArrow {
   0% {
     transform: scaleX(1.5) translateX(-25%);
@@ -100,7 +132,6 @@ table {
     visibility: hidden;
   }
 }
-
 @keyframes moveArrow {
   0% {
     transform: scaleX(1.5) translateX(-25%);
@@ -232,7 +263,7 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 0.4s;
+  transition: 0.5s;
   z-index: 9;
 }
 .status-wrap.on {
@@ -497,6 +528,26 @@ table {
   width: 363px;
   height: 147px;
   background: url("../assets/view-video.png") no-repeat;
+}
+.first .bottom-wrap .mousewheel-btn {
+  position: absolute;
+  bottom: 160px;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation-name: jump;
+          animation-name: jump;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.first .bottom-wrap .mousewheel-btn img {
+  width: 100%;
 }
 
 .second .inner {

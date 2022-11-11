@@ -24,7 +24,7 @@ $(function(){
 			page--;
 		}
 		var posTop = (page-1) * $(window).height();
-		$html.animate({scrollTop : posTop}, 1000, 'easeInOutExpo');
+		$html.animate({scrollTop : posTop}, 1000, 'easeInOutCubic');
 	});
 	
 	// main video autoplay;
